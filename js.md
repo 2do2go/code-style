@@ -59,6 +59,60 @@ Foo.prototype.somePrototypeMethod = function() {
 ```
 
 
+## Use `this` only in object constructors, methods, and in setting up closures
+
+The semantics of this can be tricky. At times it refers to the global object (in most places), the scope of the caller (in eval), a node in the DOM tree (when attached using an event handler HTML attribute), a newly created object (in a constructor), or some other object (if function was called or applyed).
+
+Because this is so easy to get wrong, limit its use to those places where it is required:
+* in constructors
+* in methods of objects (including in the creation of closures)
+
+
+## Don`t use multiline string literals
+
+Do not do this:
+
+```js
+var myString = 'A rather long string of English text, an error message \
+                actually that just keeps going and going -- an error \
+                message to make the Energizer bunny blush (right through \
+                those Schwarzenegger shades)! Where was I? Oh yes, \
+                you\'ve got an error and all the extraneous whitespace is \
+                just gravy.  Have a nice day.';
+```
+
+The whitespace at the beginning of each line can't be safely stripped at compile time; whitespace after the slash will result in tricky errors; and while most script engines support this, it is not part of ECMAScript.
+
+Use string concatenation instead:
+
+```js
+var myString = 'A rather long string of English text, an error message ' +
+    'actually that just keeps going and going -- an error ' +
+    'message to make the Energizer bunny blush (right through ' +
+    'those Schwarzenegger shades)! Where was I? Oh yes, ' +
+    'you\'ve got an error and all the extraneous whitespace is ' +
+    'just gravy.  Have a nice day.';
+```
+
+## Use Array and Object literals
+
+Always use the more readable Array and Object literals instead of Array and Object constructors:
+
+```js
+var a = [x1, x2, x3];
+var a2 = [x1, x2];
+var a3 = [x1];
+var a4 = [];
+
+var o = {};
+var o2 = {
+  a: 0,
+  b: 1,
+  c: 2,
+  'strange key': 3
+};
+```
+
 # Used materials
 
 * [Google JavaScript Style](http://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml)
