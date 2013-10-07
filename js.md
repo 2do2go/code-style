@@ -113,7 +113,26 @@ var o2 = {
 };
 ```
 
+## Don`t modify prototypes of builtin objects
+
+Modifying builtins like Object.prototype and Array.prototype are strictly forbidden. Modifying other builtins like Function.prototype is less dangerous but still leads to hard to debug issues in production and should be avoided.
+
+
+## `'use strict';` mode
+
+Strict mode has following benefits
+
+* Forces you to declare variables with `var`
+* Prevents function declarations within blocks
+* Prohibits duplicate property names at object, dublicate argument names
+* Strict mode makes `arguments`, `eval` and `this` (the specified this is used unchanged, but if unspecified, this will be `undefined`) less bizarrely magical
+* Paving the way for future ECMAScript versions (`implements`, `interface` and others become reserved keywords, etc)
+
+[and more]((https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions_and_function_scope/Strict_mode))
+
+
 # Used materials
 
 * [Google JavaScript Style](http://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml)
+* [Strict mode - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions_and_function_scope/Strict_mode)
 * [DailyJS: JavaScript and Semicolons](http://dailyjs.com/2012/04/19/semicolons/)
