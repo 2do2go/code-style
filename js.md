@@ -18,7 +18,7 @@ a = b + c
 (options || {}).foo ? bar() : baz()
 ```
 
-In both of these cases, the parser doesn’t need to apply ASI in order to have properly formed code. In the first example, it can ignore the new line and treat the [ as applying to c, likewise in the second example, the ( can apply to c. 
+In both of these cases, the parser doesn’t need to apply ASI in order to have properly formed code. In the first example, it can ignore the new line and treat the [ as applying to c, likewise in the second example, the ( can apply to c.
 
 
 ## Don`t use primitive types wrapper objects for assign value to variable
@@ -54,7 +54,7 @@ function Foo() {
 	this.someInstanceProperty = 1;
 }
 Foo.prototype.somePrototypeProperty = '1';
-Foo.prototype.somePrototypeMethod = function() {	
+Foo.prototype.somePrototypeMethod = function() {
 };
 ```
 
@@ -128,7 +128,7 @@ Strict mode has following benefits
 * Strict mode makes `arguments`, `eval` and `this` (the specified this is used unchanged, but if unspecified, this will be `undefined`) less bizarrely magical
 * Paving the way for future ECMAScript versions (`implements`, `interface` and others become reserved keywords, etc)
 
-[and more]((https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions_and_function_scope/Strict_mode))
+[and more](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions_and_function_scope/Strict_mode)
 
 
 # Used materials
