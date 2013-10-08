@@ -21,7 +21,7 @@ a = b + c
 In both of these cases, the parser doesn’t need to apply ASI in order to have properly formed code. In the first example, it can ignore the new line and treat the [ as applying to c, likewise in the second example, the ( can apply to c.
 
 
-## Don`t use primitive types wrapper objects for assign value to variable
+## Don't use primitive types wrapper objects for assign value to variable
 
 There's no reason to use wrapper objects for primitive types, plus they're dangerous:
 
@@ -91,7 +91,7 @@ Because this is so easy to get wrong, limit its use to those places where it is 
 * in methods of objects (including in the creation of closures)
 
 
-## Don`t use multiline string literals
+## Don't use multiline string literals
 
 Do not do this:
 
@@ -136,7 +136,7 @@ var o2 = {
 };
 ```
 
-## Don`t modify prototypes of builtin objects
+## Don't modify prototypes of builtin objects
 
 Modifying builtins like Object.prototype and Array.prototype are strictly forbidden. Modifying other builtins like Function.prototype is less dangerous but still leads to hard to debug issues in production and should be avoided.
 
