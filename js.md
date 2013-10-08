@@ -58,6 +58,29 @@ Foo.prototype.somePrototypeMethod = function() {
 };
 ```
 
+## Inheritance
+
+Use "Parasitic Combination Inheritance" e.g. `util.inherits` in node.js
+
+```js
+function ChildConstructor(options) {
+  // call parent contructor
+  ParentConstructor.call(this, options);
+}
+util.inherits(ChildConstructor, ParentConstructor);
+ChildConstructor.prototype.someMethod = function(a, b) {
+  // call parent method
+  ParentConstructor.prototype.someMethod.call(this, a, b);
+};
+```
+
+It also can be easily implemented using `Object.create` JavaScript function (in
+case when your JavaScript environment doesn't provides function for inheritance).
+
+But don't use link to parent contructor which some function for inheritance provide,
+e.g. node.js `util.inherits` provides link to parent constructor as `super_` property.
+Use of such link within constructor at several inheritance levels leads to infinite recursion.
+Don't do it. Just call parent constructor or method using `call` or `apply` as shown above instead.
 
 ## Use `this` only in object constructors, methods, and in setting up closures
 
