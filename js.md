@@ -1,8 +1,9 @@
 
 # JavaScript code style
 
+## Language Rules
 
-## Always use semicolons
+### Always use semicolons
 
 Relying on implicit insertion can cause subtle (Automatic Semicolon Insertion - ASI), hard to debug problems. Don't do it. You're better than that.
 
@@ -21,7 +22,7 @@ a = b + c
 In both of these cases, the parser doesn’t need to apply ASI in order to have properly formed code. In the first example, it can ignore the new line and treat the [ as applying to c, likewise in the second example, the ( can apply to c.
 
 
-## Don't use primitive types wrapper objects for assign value to variable
+### Don't use primitive types wrapper objects for assign value to variable
 
 There's no reason to use wrapper objects for primitive types, plus they're dangerous:
 
@@ -45,7 +46,7 @@ if (x) {
 This is very useful for casting things to number, string and boolean.
 
 
-## Method and property definitions
+### Method and property definitions
 
 Define instance properties within contructor, prototype properties and methods as prototype members:
 
@@ -58,7 +59,7 @@ Foo.prototype.somePrototypeMethod = function() {
 };
 ```
 
-## Inheritance
+### Inheritance
 
 Use "Parasitic Combination Inheritance" e.g. `util.inherits` in node.js
 
@@ -82,7 +83,7 @@ e.g. node.js `util.inherits` provides link to parent constructor as `super_` pro
 Using such link within constructor at several inheritance levels leads to infinite recursion.
 Don't do it. Just call parent constructor or method using `call` or `apply` as shown above instead.
 
-## Use `this` only in object constructors, methods, and in setting up closures
+### Use `this` only in object constructors, methods, and in setting up closures
 
 The semantics of this can be tricky. At times it refers to the global object (in most places), the scope of the caller (in eval), a node in the DOM tree (when attached using an event handler HTML attribute), a newly created object (in a constructor), or some other object (if function was called or applyed).
 
@@ -91,7 +92,7 @@ Because this is so easy to get wrong, limit its use to those places where it is 
 * in methods of objects (including in the creation of closures)
 
 
-## Don't use multiline string literals
+### Don't use multiline string literals
 
 Do not do this:
 
@@ -117,7 +118,7 @@ var myString = 'A rather long string of English text, an error message ' +
     'just gravy.  Have a nice day.';
 ```
 
-## Use Array and Object literals
+### Use Array and Object literals
 
 Always use the more readable Array and Object literals instead of Array and Object constructors:
 
@@ -136,12 +137,12 @@ var o2 = {
 };
 ```
 
-## Don't modify prototypes of builtin objects
+### Don't modify prototypes of builtin objects
 
 Modifying builtins like Object.prototype and Array.prototype are strictly forbidden. Modifying other builtins like Function.prototype is less dangerous but still leads to hard to debug issues in production and should be avoided.
 
 
-## `'use strict';` mode
+### `'use strict';` mode
 
 Strict mode has following benefits
 
@@ -154,7 +155,7 @@ Strict mode has following benefits
 [and more](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions_and_function_scope/Strict_mode)
 
 
-## Don't use `eval`
+### Don't use `eval`
 
 `eval` should be used only in specific cases e.g. code loader.
 
@@ -165,7 +166,7 @@ write your code, so its use is generally not permitted.
 For RPC you can always use JSON and read the result using `JSON.parse` instead of `eval`.
 
 
-## Don't use `with`
+### Don't use `with`
 
 Using with clouds the semantics of your program. Because the object of the with
 can have properties that collide with local variables, it can drastically change
@@ -184,7 +185,7 @@ with (obj) {
 }
 ```
 
-# Used materials
+## Used materials
 
 * [Google JavaScript Style](http://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml)
 * [Strict mode - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions_and_function_scope/Strict_mode)
