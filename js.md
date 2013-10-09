@@ -5,7 +5,8 @@
 
 ### Always use semicolons
 
-Relying on implicit insertion can cause subtle (Automatic Semicolon Insertion - ASI), hard to debug problems. Don't do it. You're better than that.
+Relying on implicit semicolon insertion (Automatic Semicolon Insertion - ASI) can
+cause subtle, hard to debug problems. Don't do it. You're better than that.
 
 There are a couple places where missing semicolons are particularly dangerous:
 
@@ -19,7 +20,9 @@ a = b + c
 (options || {}).foo ? bar() : baz()
 ```
 
-In both of these cases, the parser doesn’t need to apply ASI in order to have properly formed code. In the first example, it can ignore the new line and treat the [ as applying to c, likewise in the second example, the ( can apply to c.
+In both of these cases, the parser doesn’t need to apply ASI in order to have
+properly formed code. In the first example, it can ignore the new line and treat
+the [ as applying to c, likewise in the second example, the ( can apply to c.
 
 
 ### Don't use primitive types wrapper objects for assign value to variable
@@ -184,6 +187,7 @@ with (obj) {
   console.log(x);
 }
 ```
+
 
 ### Cast types manually
 
