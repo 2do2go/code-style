@@ -255,7 +255,7 @@ if (index === 0) {
 ## Style rules
 
 
-### Use camel case
+### Use camelСase
 
 In general, use functionOrMethodsNamesLikeThis, variableNamesLikeThis,
 ClassNamesLikeThis, and fileNamesLikeThis.js
@@ -290,6 +290,18 @@ if (something) {
   // ...
 }
 ```
+
+
+### Use dot notation by default
+
+Do `obj.key` instead of `obj['key']` except cases when key really have to be
+surrounded with quotes e.g. `obj['some key']`
+
+
+### Quote object keys only when required
+
+Do `obj = {key: 1};` instead of `obj = {'key': 1};` except cases when key really
+have to be surrounded with quotes e.g. `obj = {'some key': 1}`
 
 
 ## Used materials
