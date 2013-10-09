@@ -1,7 +1,7 @@
 
 # JavaScript code style
 
-## Language Rules
+## Language rules
 
 ### Always use semicolons
 
@@ -248,6 +248,46 @@ them e.g. to distinguish falsy values:
 ```js
 // will be true only for 0
 if (index === 0) {
+}
+```
+
+
+## Style rules
+
+
+### Use camel case
+
+In general, use functionOrMethodsNamesLikeThis, variableNamesLikeThis,
+ClassNamesLikeThis, and fileNamesLikeThis.js
+
+
+### Use tabs for indentation
+
+
+### Limit line width to 80 characters
+
+
+### Use single quotes
+
+
+### Use parentheses only where required
+
+Use sparingly and in general only where required by the syntax and semantics.
+
+Never use parentheses for unary operators such as delete, typeof and void or
+after keywords such as return, throw as well as others (case, in or new).
+
+
+### Start your curly braces on the same line
+
+Because of implicit semicolon insertion, always start your curly braces on the
+same line as whatever they're opening. For example:
+
+```js
+if (something) {
+  // ...
+} else {
+  // ...
 }
 ```
 
