@@ -47,7 +47,7 @@ This is very useful for casting things to number, string and boolean.
 
 ## Method and property definitions
 
-Define instance properties at contructor, prototype properties and methods as prototype members:
+Define instance properties within contructor, prototype properties and methods as prototype members:
 
 ```js
 function Foo() {
@@ -79,7 +79,7 @@ case when your JavaScript environment doesn't provides function for inheritance)
 
 But don't use link to parent contructor which some function for inheritance provide,
 e.g. node.js `util.inherits` provides link to parent constructor as `super_` property.
-Use of such link within constructor at several inheritance levels leads to infinite recursion.
+Using such link within constructor at several inheritance levels leads to infinite recursion.
 Don't do it. Just call parent constructor or method using `call` or `apply` as shown above instead.
 
 ## Use `this` only in object constructors, methods, and in setting up closures
@@ -153,6 +153,36 @@ Strict mode has following benefits
 
 [and more](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions_and_function_scope/Strict_mode)
 
+
+## Don't use `eval`
+
+`eval` should be used only in specific cases e.g. code loader.
+
+`eval` makes for confusing semantics and is dangerous to use if the string being
+eval'd contains user input. There's usually a better, clearer, and safer way to
+write your code, so its use is generally not permitted.
+
+For RPC you can always use JSON and read the result using `JSON.parse` instead of `eval`.
+
+
+## Don't use `with`
+
+Using with clouds the semantics of your program. Because the object of the with
+can have properties that collide with local variables, it can drastically change
+the meaning of your program. For example:
+
+```js
+var obj = {x: 1};
+var x = 2;
+
+with (obj) {
+  // prints 1
+  console.log(x);
+  delete obj.x;
+  // prints 2
+  console.log(x);
+}
+```
 
 # Used materials
 
