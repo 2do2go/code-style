@@ -189,6 +189,28 @@ with (obj) {
 ```
 
 
+### Check for truthy or not truthy by default
+
+`false`, `0`, `''`, `null`, `undefined`, `NaN` are falsy values in JavaScript and
+it is very simple to check whether it is truthy value or not:
+
+```js
+if (val) {
+  // if val is truthy
+}
+if (!val) {
+  // if val is falsy
+}
+if (val && val2 && val3) {
+  // if val, val2, val3 are truthy
+}
+```
+
+it is nice and compact syntax, use it everywhere (e.g. instead of check that
+object variable not `null` just check that it is truthy), except cases when you
+really need to check for a specific falsy value.
+
+
 ### Cast types manually
 
 Implicit javascript type casting can blow your mind with no effort, e.g.
