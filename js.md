@@ -313,6 +313,18 @@ Do `obj = {key: 1};` instead of `obj = {'key': 1};` except cases when key really
 have to be surrounded with quotes e.g. `obj = {'some key': 1}`
 
 
+### Keep explicit `this`
+
+For keeping explicit `this` don't use `bind` just use closure e.g.
+
+```js
+var self = this;
+items.forEach(function(item) {
+  self.processItem(item);
+});
+```
+
+
 ## Used materials
 
 * [Google JavaScript Style](http://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml)
