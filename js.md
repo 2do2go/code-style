@@ -252,6 +252,15 @@ if (index === 0) {
 ```
 
 
+### Use custom exception when appropriate
+
+Without custom exceptions, returning error information from a function that also
+returns a value can be tricky, not to mention inelegant. Bad solutions include
+passing in a reference type to hold error information or always returning
+Objects with a potential error member. These basically amount to a primitive
+exception handling hack. Feel free to use custom exceptions when appropriate.
+
+
 ## Style rules
 
 
