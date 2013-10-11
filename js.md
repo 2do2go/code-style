@@ -313,7 +313,7 @@ Do `obj = {key: 1};` instead of `obj = {'key': 1};` except cases when key really
 have to be surrounded with quotes e.g. `obj = {'some key': 1}`
 
 
-### Keep explicit `this`
+### Keep explicit context
 
 For keeping explicit `this` don't use `bind` just use closure e.g.
 
