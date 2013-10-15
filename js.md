@@ -1,7 +1,24 @@
 
 # JavaScript code style
 
+
 ## Language rules
+
+
+### Be strict
+
+Use strict mode, it has following benefits:
+
+* Forces you to declare variables with `var`
+* Prevents function declarations within blocks
+* Prohibits duplicate property names at object, dublicate argument names
+* Strict mode makes `arguments`, `eval` and `this` (unspecified, `this` will be
+`undefined`) less bizarrely magical
+* Paving the way for future ECMAScript versions (`implements`, `interface` and
+others become reserved keywords, etc)
+
+[and more](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions_and_function_scope/Strict_mode)
+
 
 ### Always use semicolons
 
@@ -157,21 +174,6 @@ var o2 = {
 Modifying builtins like Object.prototype and Array.prototype are strictly
 forbidden. Modifying other builtins like Function.prototype is less dangerous
 but still leads to hard to debug issues in production and should be avoided.
-
-
-### `'use strict';` mode
-
-Strict mode has following benefits
-
-* Forces you to declare variables with `var`
-* Prevents function declarations within blocks
-* Prohibits duplicate property names at object, dublicate argument names
-* Strict mode makes `arguments`, `eval` and `this` (the specified this is used
-unchanged, but if unspecified, this will be `undefined`) less bizarrely magical
-* Paving the way for future ECMAScript versions (`implements`, `interface` and
-others become reserved keywords, etc)
-
-[and more](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions_and_function_scope/Strict_mode)
 
 
 ### Don't use `eval`
