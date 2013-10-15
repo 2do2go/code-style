@@ -32,7 +32,8 @@ There's no reason to use wrapper objects for primitive types, plus they're dange
 ```js
 var x = new Boolean(false);
 if (x) {
-  alert('hi');  // Shows 'hi', coz typeof x === 'object'
+	// Shows 'hi', coz typeof x === 'object'
+	alert('hi'); 
 }
 ```
 
@@ -42,7 +43,8 @@ However type casting is fine.
 ```js
 var x = Boolean(0);
 if (x) {
-  alert('hi');  // This will never be alerted, coz typeof x === 'boolean'
+	// This will never be alerted, coz typeof x === 'boolean'
+	alert('hi');
 }
 ```
 
@@ -51,7 +53,8 @@ This is very useful for casting things to number, string and boolean.
 
 ### Method and property definitions
 
-Define instance properties within contructor, prototype properties and methods as prototype members:
+Define instance properties within contructor, prototype properties and methods
+as prototype members:
 
 ```js
 function Foo() {
@@ -68,13 +71,13 @@ Use "Parasitic Combination Inheritance" e.g. `util.inherits` in node.js
 
 ```js
 function ChildConstructor(options) {
-  // call parent contructor
-  ParentConstructor.call(this, options);
+	// call parent contructor
+	ParentConstructor.call(this, options);
 }
 util.inherits(ChildConstructor, ParentConstructor);
 ChildConstructor.prototype.someMethod = function(a, b) {
-  // call parent method
-  ParentConstructor.prototype.someMethod.call(this, a, b);
+	// call parent method
+	ParentConstructor.prototype.someMethod.call(this, a, b);
 };
 ```
 
@@ -83,14 +86,20 @@ case when your JavaScript environment doesn't provides function for inheritance)
 
 But don't use link to parent contructor which some function for inheritance provide,
 e.g. node.js `util.inherits` provides link to parent constructor as `super_` property.
-Using such link within constructor at several inheritance levels leads to infinite recursion.
-Don't do it. Just call parent constructor or method using `call` or `apply` as shown above instead.
+Using such link within constructor at several inheritance levels leads to
+infinite recursion. Don't do it. Just call parent constructor or method using
+`call` or `apply` as shown above instead.
 
 ### Use `this` only in object constructors, methods, and in setting up closures
 
-The semantics of this can be tricky. At times it refers to the global object (in most places), the scope of the caller (in eval), a node in the DOM tree (when attached using an event handler HTML attribute), a newly created object (in a constructor), or some other object (if function was called or applyed).
+The semantics of this can be tricky. At times it refers to the global object
+(in most places), the scope of the caller (in eval), a node in the DOM tree
+(when attached using an event handler HTML attribute), a newly created object
+(in a constructor), or some other object (if function was called or applyed).
 
-Because this is so easy to get wrong, limit its use to those places where it is required:
+Because this is so easy to get wrong, limit its use to those places where it is
+required:
+
 * in constructors
 * in methods of objects (including in the creation of closures)
 
@@ -101,29 +110,32 @@ Do not do this:
 
 ```js
 var myString = 'A rather long string of English text, an error message \
-                actually that just keeps going and going -- an error \
-                message to make the Energizer bunny blush (right through \
-                those Schwarzenegger shades)! Where was I? Oh yes, \
-                you\'ve got an error and all the extraneous whitespace is \
-                just gravy.  Have a nice day.';
+	actually that just keeps going and going -- an error \
+	message to make the Energizer bunny blush (right through \
+	those Schwarzenegger shades)! Where was I? Oh yes, \
+	you\'ve got an error and all the extraneous whitespace is \
+	just gravy.  Have a nice day.';
 ```
 
-The whitespace at the beginning of each line can't be safely stripped at compile time; whitespace after the slash will result in tricky errors; and while most script engines support this, it is not part of ECMAScript.
+The whitespace at the beginning of each line can't be safely stripped at compile
+time; whitespace after the slash will result in tricky errors; and while most
+script engines support this, it is not part of ECMAScript.
 
 Use string concatenation instead:
 
 ```js
 var myString = 'A rather long string of English text, an error message ' +
-    'actually that just keeps going and going -- an error ' +
-    'message to make the Energizer bunny blush (right through ' +
-    'those Schwarzenegger shades)! Where was I? Oh yes, ' +
-    'you\'ve got an error and all the extraneous whitespace is ' +
-    'just gravy.  Have a nice day.';
+	'actually that just keeps going and going -- an error ' +
+	'message to make the Energizer bunny blush (right through ' +
+	'those Schwarzenegger shades)! Where was I? Oh yes, ' +
+	'you\'ve got an error and all the extraneous whitespace is ' +
+	'just gravy.  Have a nice day.';
 ```
 
 ### Use Array and Object literals
 
-Always use the more readable Array and Object literals instead of Array and Object constructors:
+Always use the more readable Array and Object literals instead of Array and
+Object constructors:
 
 ```js
 var a = [x1, x2, x3];
@@ -133,16 +145,18 @@ var a4 = [];
 
 var o = {};
 var o2 = {
-  a: 0,
-  b: 1,
-  c: 2,
-  'strange key': 3
+	a: 0,
+	b: 1,
+	c: 2,
+	'strange key': 3
 };
 ```
 
 ### Don't modify prototypes of builtin objects
 
-Modifying builtins like Object.prototype and Array.prototype are strictly forbidden. Modifying other builtins like Function.prototype is less dangerous but still leads to hard to debug issues in production and should be avoided.
+Modifying builtins like Object.prototype and Array.prototype are strictly
+forbidden. Modifying other builtins like Function.prototype is less dangerous
+but still leads to hard to debug issues in production and should be avoided.
 
 
 ### `'use strict';` mode
@@ -152,8 +166,10 @@ Strict mode has following benefits
 * Forces you to declare variables with `var`
 * Prevents function declarations within blocks
 * Prohibits duplicate property names at object, dublicate argument names
-* Strict mode makes `arguments`, `eval` and `this` (the specified this is used unchanged, but if unspecified, this will be `undefined`) less bizarrely magical
-* Paving the way for future ECMAScript versions (`implements`, `interface` and others become reserved keywords, etc)
+* Strict mode makes `arguments`, `eval` and `this` (the specified this is used
+unchanged, but if unspecified, this will be `undefined`) less bizarrely magical
+* Paving the way for future ECMAScript versions (`implements`, `interface` and
+others become reserved keywords, etc)
 
 [and more](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions_and_function_scope/Strict_mode)
 
@@ -166,7 +182,8 @@ Strict mode has following benefits
 eval'd contains user input. There's usually a better, clearer, and safer way to
 write your code, so its use is generally not permitted.
 
-For RPC you can always use JSON and read the result using `JSON.parse` instead of `eval`.
+For RPC you can always use JSON and read the result using `JSON.parse` instead
+of `eval`.
 
 
 ### Don't use `with`
@@ -180,11 +197,11 @@ var obj = {x: 1};
 var x = 2;
 
 with (obj) {
-  // prints 1
-  console.log(x);
-  delete obj.x;
-  // prints 2
-  console.log(x);
+	// prints 1
+	console.log(x);
+	delete obj.x;
+	// prints 2
+	console.log(x);
 }
 ```
 
@@ -196,13 +213,13 @@ it is very simple to check whether it is truthy value or not:
 
 ```js
 if (val) {
-  // if val is truthy
+	// if val is truthy
 }
 if (!val) {
-  // if val is falsy
+	// if val is falsy
 }
 if (val && val2 && val3) {
-  // if val, val2, val3 are truthy
+	// if val, val2, val3 are truthy
 }
 ```
 
@@ -294,9 +311,9 @@ same line as whatever they're opening. For example:
 
 ```js
 if (something) {
-  // ...
+	// ...
 } else {
-  // ...
+	// ...
 }
 ```
 
@@ -320,7 +337,7 @@ For keeping explicit `this` don't use `bind` just use closure e.g.
 ```js
 var self = this;
 items.forEach(function(item) {
-  self.processItem(item);
+	self.processItem(item);
 });
 ```
 
