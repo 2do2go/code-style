@@ -42,9 +42,10 @@ properly formed code. In the first example, it can ignore the new line and treat
 the [ as applying to c, likewise in the second example, the ( can apply to c.
 
 
-### Don't use primitive types wrapper objects for assign value to variable
+### Don't use primitive types wrapper objects as constructor
 
-There's no reason to use wrapper objects for primitive types, plus they're dangerous:
+There's no reason to use wrapper objects for primitive types, plus they're
+dangerous:
 
 ```js
 var x = new Boolean(false);
@@ -342,6 +343,12 @@ items.forEach(function(item) {
 	self.processItem(item);
 });
 ```
+
+
+### Don't use inline comments
+
+
+### Surround operator with spaces
 
 
 ## Used materials
