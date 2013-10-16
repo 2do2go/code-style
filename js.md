@@ -193,7 +193,7 @@ String(10) === '10';
 ```
 
 
-### Use `===` by default
+### Use `===`, `!==`
 
 Use strict versions of equal (`===`) and not equal (`!==`) operators. It helps
 detect forgotten type casting.
