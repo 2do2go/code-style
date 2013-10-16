@@ -1,13 +1,44 @@
 
 # JavaScript code style
 
+Language rules
+
+* Use strict mode [(+)](#use-strict-mode)
+* Inherit like [this](#inheritance)
+* Define methods and properties like [this](#method-and-property-definitions)
+* Use `this` only in object constructors, methods and in setting up closures [(+)](#use-this-only-in-object-constructors-methods-and-in-setting-up-closures)
+* Use Array and Object literals [(+)](#use-array-and-object-literals)
+* Always use semicolons [(+)](#always-use-semicolons)
+* Don't use primitive types wrapper objects as constructor [(+)](#dont-use-primitive-types-wrapper-objects-as-constructor)
+* Check for truthy or not truthy by default [(+)](#check-for-truthy-or-not-truthy-by-default)
+* Cast types manually [(+)](#cast-types-manually)
+* Use strict comparation [(+)](#use-strict-comparation)
+* Use custom exception when appropriate [(+)](#use-custom-exception-when-appropriate)
+* Don't modify prototypes of builtin objects [(+)](#dont-modify-prototypes-of-builtin-objects)
+* Don't use multiline string literals [(+)](#dont-use-multiline-string-literals)
+* Don't use eval [(+)](#dont-use-eval)
+* Don't use with [(+)](#dont-use-with)
+
+Style rules
+
+* Use camelСase [(+)](#use-camelcase)
+* Use tabs for indentation
+* Limit line width to 80 characters
+* Use single quotes
+* Use parentheses only where required [(+)](#use-parentheses-only-where-required)
+* Start your curly braces on the same line [(+)](#start-your-curly-braces-on-the-same-line)
+* Use dot notation by default [(+)](#use-dot-notation-by-default)
+* Quote object keys only when required [(+)](#quote-object-keys-only-when-required)
+* Keep explicit context [(+)](#keep-explicit-context)
+* Don't use inline comments
+* Surround operator with spaces
 
 ## Language rules
 
 
-### Be strict
+### Use strict mode
 
-Use strict mode, it has following benefits:
+It has following benefits:
 
 * Forces you to declare variables with `var`
 * Prevents function declarations within blocks
@@ -193,7 +224,7 @@ String(10) === '10';
 ```
 
 
-### Use `===`, `!==`
+### Use strict comparation
 
 Use strict versions of equal (`===`) and not equal (`!==`) operators. It helps
 detect forgotten type casting.
@@ -279,10 +310,14 @@ with (obj) {
 ## Style rules
 
 
-### Use camelСase
+### Use camelCase
 
-In general, use functionOrMethodsNamesLikeThis, variableNamesLikeThis,
-ClassNamesLikeThis, and fileNamesLikeThis.js
+In general, use:
+
+* functionOrMethodsNamesLikeThis
+* variableNamesLikeThis
+* ClassNamesLikeThis
+* fileNamesLikeThis.js
 
 
 ### Use tabs for indentation
