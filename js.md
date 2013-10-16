@@ -172,13 +172,13 @@ really need to check for a specific falsy value.
 Implicit javascript type casting can blow your mind with no effort, e.g.
 
 ```js
-Boolean(0) == false;
-Boolean('') == false;
-Boolean(null) == false;
-Boolean(undefined) == false;
+Boolean(0) === false;
+Boolean('') === false;
+Boolean(null) === false;
+Boolean(undefined) === false;
 // falsy values are equal, that's ok
-'' == 0;
-null == undefined;
+'' === 0;
+null === undefined;
 // but not all falsy values are equal
 0 != null;
 ```
@@ -187,25 +187,16 @@ that's why you better do it yourself, `Boolean`, `Number`, `String` are great fo
 types casting
 
 ```js
-Number('10') == 10;
-Boolean(0) == false;
-String(10) == '10';
+Number('10') === 10;
+Boolean(0) === false;
+String(10) === '10';
 ```
 
 
-### Use `==` by default
+### Use `===` by default
 
-Since you already cast types manually (see `Cast types manually`) there no reason
-to use strict versions of equal (`===`) and not equal (`!==`) operators.
-Especially considering the fact that other operators (greater, greater or
-equal, etc) doesn't have strict versions. Use strict operators when you really need
-them e.g. to distinguish falsy values:
-
-```js
-// will be true only for 0
-if (index === 0) {
-}
-```
+Use strict versions of equal (`===`) and not equal (`!==`) operators. It helps
+detect forgotten type casting.
 
 
 ### Use custom exception when appropriate
