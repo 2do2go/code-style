@@ -57,7 +57,7 @@ Use "Parasitic Combination Inheritance" e.g. `util.inherits` in node.js
 
 ```js
 function ChildConstructor(options) {
-	// call parent contructor
+	// call parent constructor
 	ParentConstructor.call(this, options);
 }
 util.inherits(ChildConstructor, ParentConstructor);
@@ -70,7 +70,7 @@ ChildConstructor.prototype.someMethod = function(arg1, arg2) {
 It also can be easily implemented using `Object.create` JavaScript function (in
 case when your JavaScript environment doesn't provides function for inheritance).
 
-But don't use link to parent contructor which some function for inheritance provide,
+But don't use link to parent constructor which some function for inheritance provide,
 e.g. node.js `util.inherits` provides link to parent constructor as `super_` property.
 Using such link within constructor at several inheritance levels leads to
 infinite recursion. Don't do it. Just call parent constructor or method using
@@ -79,7 +79,7 @@ infinite recursion. Don't do it. Just call parent constructor or method using
 
 ### Method and property definitions
 
-Define instance properties within contructor, prototype properties and methods
+Define instance properties within constructor, prototype properties and methods
 as prototype members:
 
 ```js
